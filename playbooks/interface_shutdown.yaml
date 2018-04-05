@@ -1,0 +1,12 @@
+---
+- hosts: 172.31.1.2
+  connection: local
+  gather_facts: no
+  tasks:
+  - template: src="/home/pi/Automatization/magic/templates/interface_shutdown.j2" dest="/home/pi/Automatization/magic/configs/interface_shutdown_{{inventory_hostname}}.txt"
+    name: Config generation - interface shutdown
+ 
+  - ios_config:
+      authorize: yes
+      auth_pass: "{{ansible_ssh_pass}}"
+      src: "/home/pi/Automatization/magic/configs/interface_shutdown_{{inventory_hostname}}.txt"

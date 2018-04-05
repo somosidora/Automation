@@ -1,0 +1,10 @@
+---
+- hosts: mikrotik
+  connection: local
+  gather_facts: no
+  tasks:
+  - mt_command:
+      username: "{{ansible_user}}"
+      password: "{{ansible_ssh_pass}}"
+      hostname: "{{inventory_hostname}}"
+      command: /interface print
