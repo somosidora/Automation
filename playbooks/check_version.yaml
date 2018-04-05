@@ -1,0 +1,14 @@
+---
+- hosts: me3800
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: check IOS version
+    ios_command:
+      commands: show version
+      authorize: yes
+      auth_pass: "{{ansible_ssh_pass}}"
+    register: show
+
+  - fail: msg="Wrong IOS version"
+    when: "not ('{{ios_version}}' in show.stdout[0])"

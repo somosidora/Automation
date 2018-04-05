@@ -1,0 +1,11 @@
+---
+- hosts: me3800
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: show ip arp
+    ios_command:
+      commands: show ip arp
+    register: show
+
+  - debug: var=show.stdout_lines
