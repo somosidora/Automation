@@ -1,0 +1,1106 @@
+ansible-playbook 2.4.3.0
+  config file = /home/pi/Automatization/magic/ansible.cfg
+  configured module search path = [u'/home/pi/Automatization/napalm-ansible/napalm_ansible/modules', u'/home/pi/Automatization/ansible-mikrotik/library']
+  ansible python module location = /usr/lib/python2.7/dist-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 2.7.13 (default, Jan 19 2017, 14:48:08) [GCC 6.3.0 20170124]
+Using /home/pi/Automatization/magic/ansible.cfg as config file
+setting up inventory plugins
+Parsed /home/pi/Automatization/magic/hosts inventory source with ini plugin
+Loading callback plugin default of type stdout, v2.0 from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/default.pyc
+
+PLAYBOOK: read_interface.yaml ******************************************************************************************************************************************************************************************************************
+1 plays in playbooks/read_interface.yaml
+
+PLAY [Collect interface statuses] **************************************************************************************************************************************************************************************************************
+META: ran handlers
+
+TASK [ios_facts] *******************************************************************************************************************************************************************************************************************************
+task path: /home/pi/Automatization/magic/playbooks/read_interface.yaml:10
+<172.31.1.1> using connection plugin network_cli
+<172.31.1.2> using connection plugin network_cli
+<172.31.1.2> socket_path: /home/pi/.ansible/pc/164c104273
+<172.31.1.1> socket_path: /home/pi/.ansible/pc/16e57b7980
+Using module file /usr/lib/python2.7/dist-packages/ansible/modules/network/ios/ios_facts.py
+<172.31.1.2> ESTABLISH LOCAL CONNECTION FOR USER: pi
+<172.31.1.2> EXEC /bin/sh -c 'echo ~ && sleep 0'
+Using module file /usr/lib/python2.7/dist-packages/ansible/modules/network/ios/ios_facts.py
+<172.31.1.1> ESTABLISH LOCAL CONNECTION FOR USER: pi
+<172.31.1.1> EXEC /bin/sh -c 'echo ~ && sleep 0'
+<172.31.1.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/pi/.ansible/tmp/ansible-tmp-1522968196.99-2805877485592 `" && echo ansible-tmp-1522968196.99-2805877485592="` echo /home/pi/.ansible/tmp/ansible-tmp-1522968196.99-2805877485592 `" ) && sleep 0'
+<172.31.1.2> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/pi/.ansible/tmp/ansible-tmp-1522968196.99-113032529224313 `" && echo ansible-tmp-1522968196.99-113032529224313="` echo /home/pi/.ansible/tmp/ansible-tmp-1522968196.99-113032529224313 `" ) && sleep 0'
+<172.31.1.1> PUT /tmp/tmp_mfBZN TO /home/pi/.ansible/tmp/ansible-tmp-1522968196.99-2805877485592/ios_facts.py
+<172.31.1.1> EXEC /bin/sh -c 'chmod u+x /home/pi/.ansible/tmp/ansible-tmp-1522968196.99-2805877485592/ /home/pi/.ansible/tmp/ansible-tmp-1522968196.99-2805877485592/ios_facts.py && sleep 0'
+<172.31.1.2> PUT /tmp/tmp0e7vmN TO /home/pi/.ansible/tmp/ansible-tmp-1522968196.99-113032529224313/ios_facts.py
+<172.31.1.2> EXEC /bin/sh -c 'chmod u+x /home/pi/.ansible/tmp/ansible-tmp-1522968196.99-113032529224313/ /home/pi/.ansible/tmp/ansible-tmp-1522968196.99-113032529224313/ios_facts.py && sleep 0'
+<172.31.1.1> EXEC /bin/sh -c '/usr/bin/python /home/pi/.ansible/tmp/ansible-tmp-1522968196.99-2805877485592/ios_facts.py; rm -rf "/home/pi/.ansible/tmp/ansible-tmp-1522968196.99-2805877485592/" > /dev/null 2>&1 && sleep 0'
+<172.31.1.2> EXEC /bin/sh -c '/usr/bin/python /home/pi/.ansible/tmp/ansible-tmp-1522968196.99-113032529224313/ios_facts.py; rm -rf "/home/pi/.ansible/tmp/ansible-tmp-1522968196.99-113032529224313/" > /dev/null 2>&1 && sleep 0'
+ok: [172.31.1.2] => {
+    "ansible_facts": {
+        "ansible_net_all_ipv4_addresses": [
+            "10.0.1.2", 
+            "10.0.2.2", 
+            "172.31.1.2"
+        ], 
+        "ansible_net_all_ipv6_addresses": [], 
+        "ansible_net_filesystems": [], 
+        "ansible_net_gather_subset": [
+            "hardware", 
+            "default", 
+            "interfaces"
+        ], 
+        "ansible_net_hostname": "ar1-rendezveny", 
+        "ansible_net_image": "flash:/me380x-universalk9-mz.153-3.S4/me380x-universalk9-mz.153-3.S4.bin", 
+        "ansible_net_interfaces": {
+            "GigabitEthernet0": {
+                "bandwidth": 1000000, 
+                "description": null, 
+                "duplex": "Auto", 
+                "ipv4": [], 
+                "lineprotocol": "down ", 
+                "macaddress": "a418.7557.ed9c", 
+                "mediatype": "MII", 
+                "mtu": 1500, 
+                "operstatus": "administratively down", 
+                "type": "PQ3_TSEC"
+            }, 
+            "GigabitEthernet0/1": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed81", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/10": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed8a", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/11": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed8b", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/12": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed8c", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/13": {
+                "bandwidth": 1000000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [
+                    {
+                        "address": "10.0.1.2", 
+                        "subnet": "24"
+                    }
+                ], 
+                "lineprotocol": "up (connected)", 
+                "macaddress": "a418.7557.edce", 
+                "mediatype": "LX", 
+                "mtu": 1500, 
+                "operstatus": "up", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/14": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [
+                    {
+                        "address": "10.0.2.2", 
+                        "subnet": "24"
+                    }
+                ], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.edcf", 
+                "mediatype": "LX", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/15": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed8f", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/16": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed90", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/17": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed91", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/18": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed92", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/19": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed93", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/2": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed82", 
+                "mediatype": "T", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/20": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed94", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/21": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed95", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/22": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed96", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/23": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed97", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/24": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (disabled)", 
+                "macaddress": "a418.7557.ed98", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "administratively down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/3": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed83", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/4": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed84", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/5": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed85", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/6": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed86", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/7": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed87", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/8": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed88", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/9": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed89", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "Loopback0": {
+                "bandwidth": 8000000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [
+                    {
+                        "address": "172.31.1.2", 
+                        "subnet": "32"
+                    }
+                ], 
+                "lineprotocol": "up ", 
+                "macaddress": "172.31.1.2/32", 
+                "mediatype": null, 
+                "mtu": 1514, 
+                "operstatus": "up", 
+                "type": null
+            }, 
+            "TenGigabitEthernet0/1": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed99", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Ten Gigabit Ethernet"
+            }, 
+            "TenGigabitEthernet0/2": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "a418.7557.ed9a", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Ten Gigabit Ethernet"
+            }, 
+            "Vlan1": {
+                "bandwidth": 1000000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down ", 
+                "macaddress": "a418.7557.edc0", 
+                "mediatype": null, 
+                "mtu": 1500, 
+                "operstatus": "administratively down", 
+                "type": "EtherSVI"
+            }
+        }, 
+        "ansible_net_memfree_mb": 671199, 
+        "ansible_net_memtotal_mb": 821620, 
+        "ansible_net_model": null, 
+        "ansible_net_neighbors": {
+            "null": [
+                {
+                    "host": null, 
+                    "port": null
+                }
+            ]
+        }, 
+        "ansible_net_serialnum": "FOC1617V2FV", 
+        "ansible_net_version": "15.3(3)S4"
+    }, 
+    "changed": false, 
+    "invocation": {
+        "module_args": {
+            "auth_pass": null, 
+            "authorize": null, 
+            "gather_subset": [
+                "!config"
+            ], 
+            "host": null, 
+            "password": null, 
+            "port": null, 
+            "provider": null, 
+            "ssh_keyfile": null, 
+            "timeout": null, 
+            "username": null
+        }
+    }
+}
+ok: [172.31.1.1] => {
+    "ansible_facts": {
+        "ansible_net_all_ipv4_addresses": [
+            "10.0.1.1", 
+            "10.0.0.1", 
+            "172.31.1.1"
+        ], 
+        "ansible_net_all_ipv6_addresses": [], 
+        "ansible_net_filesystems": [], 
+        "ansible_net_gather_subset": [
+            "hardware", 
+            "default", 
+            "interfaces"
+        ], 
+        "ansible_net_hostname": "ar0-rendezveny", 
+        "ansible_net_image": "flash:me380x-universalk9-mz.153-3.S3.bin", 
+        "ansible_net_interfaces": {
+            "GigabitEthernet0": {
+                "bandwidth": 1000000, 
+                "description": null, 
+                "duplex": "Auto", 
+                "ipv4": [], 
+                "lineprotocol": "down ", 
+                "macaddress": "58bf.eacd.131c", 
+                "mediatype": "MII", 
+                "mtu": 1500, 
+                "operstatus": "administratively down", 
+                "type": "PQ3_TSEC"
+            }, 
+            "GigabitEthernet0/1": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1342", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/10": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.130a", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/11": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.130b", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/12": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.130c", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/13": {
+                "bandwidth": 1000000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [
+                    {
+                        "address": "10.0.1.1", 
+                        "subnet": "24"
+                    }
+                ], 
+                "lineprotocol": "up (connected)", 
+                "macaddress": "58bf.eacd.134e", 
+                "mediatype": "LX", 
+                "mtu": 1500, 
+                "operstatus": "up", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/14": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.130e", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/15": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.130f", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/16": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1310", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/17": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1311", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/18": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1312", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/19": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1313", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/2": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1302", 
+                "mediatype": "LX", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/20": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1314", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/21": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1315", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/22": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1316", 
+                "mediatype": "LX", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/23": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1317", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/24": {
+                "bandwidth": 100000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [
+                    {
+                        "address": "10.0.0.1", 
+                        "subnet": "24"
+                    }
+                ], 
+                "lineprotocol": "up (connected)", 
+                "macaddress": "58bf.eacd.1359", 
+                "mediatype": "T", 
+                "mtu": 1500, 
+                "operstatus": "up", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/3": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1303", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/4": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1304", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/5": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1305", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/6": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1306", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/7": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1307", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/8": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1308", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "GigabitEthernet0/9": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1309", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Gigabit Ethernet"
+            }, 
+            "Loopback0": {
+                "bandwidth": 8000000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [
+                    {
+                        "address": "172.31.1.1", 
+                        "subnet": "32"
+                    }
+                ], 
+                "lineprotocol": "up ", 
+                "macaddress": "172.31.1.1/32", 
+                "mediatype": null, 
+                "mtu": 1514, 
+                "operstatus": "up", 
+                "type": null
+            }, 
+            "TenGigabitEthernet0/1": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.1319", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Ten Gigabit Ethernet"
+            }, 
+            "TenGigabitEthernet0/2": {
+                "bandwidth": 10000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down (notconnect)", 
+                "macaddress": "58bf.eacd.131a", 
+                "mediatype": "unknown media type", 
+                "mtu": 1500, 
+                "operstatus": "down", 
+                "type": "Ten Gigabit Ethernet"
+            }, 
+            "Vlan1": {
+                "bandwidth": 1000000, 
+                "description": null, 
+                "duplex": null, 
+                "ipv4": [], 
+                "lineprotocol": "down ", 
+                "macaddress": "58bf.eacd.1340", 
+                "mediatype": null, 
+                "mtu": 1500, 
+                "operstatus": "administratively down", 
+                "type": "EtherSVI"
+            }
+        }, 
+        "ansible_net_memfree_mb": 676980, 
+        "ansible_net_memtotal_mb": 821658, 
+        "ansible_net_model": null, 
+        "ansible_net_neighbors": {
+            "null": [
+                {
+                    "host": null, 
+                    "port": null
+                }
+            ]
+        }, 
+        "ansible_net_serialnum": "FOC1621V0XU", 
+        "ansible_net_version": "15.3(3)S3"
+    }, 
+    "changed": false, 
+    "invocation": {
+        "module_args": {
+            "auth_pass": null, 
+            "authorize": null, 
+            "gather_subset": [
+                "!config"
+            ], 
+            "host": null, 
+            "password": null, 
+            "port": null, 
+            "provider": null, 
+            "ssh_keyfile": null, 
+            "timeout": null, 
+            "username": null
+        }
+    }
+}
+
+TASK [template] ********************************************************************************************************************************************************************************************************************************
+task path: /home/pi/Automatization/magic/playbooks/read_interface.yaml:12
+<172.31.1.1> ESTABLISH LOCAL CONNECTION FOR USER: pi
+<172.31.1.1> EXEC /bin/sh -c 'echo ~ && sleep 0'
+<172.31.1.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/pi/.ansible/tmp/ansible-tmp-1522968201.0-143397374398691 `" && echo ansible-tmp-1522968201.0-143397374398691="` echo /home/pi/.ansible/tmp/ansible-tmp-1522968201.0-143397374398691 `" ) && sleep 0'
+<172.31.1.2> ESTABLISH LOCAL CONNECTION FOR USER: pi
+<172.31.1.2> EXEC /bin/sh -c 'echo ~ && sleep 0'
+<172.31.1.2> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/pi/.ansible/tmp/ansible-tmp-1522968201.04-77275577382257 `" && echo ansible-tmp-1522968201.04-77275577382257="` echo /home/pi/.ansible/tmp/ansible-tmp-1522968201.04-77275577382257 `" ) && sleep 0'
+Using module file /usr/lib/python2.7/dist-packages/ansible/modules/files/stat.py
+Using module file /usr/lib/python2.7/dist-packages/ansible/modules/files/stat.py
+<172.31.1.1> PUT /tmp/tmpEP2oeP TO /home/pi/.ansible/tmp/ansible-tmp-1522968201.0-143397374398691/stat.py
+<172.31.1.2> PUT /tmp/tmprbTme7 TO /home/pi/.ansible/tmp/ansible-tmp-1522968201.04-77275577382257/stat.py
+<172.31.1.1> EXEC /bin/sh -c 'chmod u+x /home/pi/.ansible/tmp/ansible-tmp-1522968201.0-143397374398691/ /home/pi/.ansible/tmp/ansible-tmp-1522968201.0-143397374398691/stat.py && sleep 0'
+<172.31.1.2> EXEC /bin/sh -c 'chmod u+x /home/pi/.ansible/tmp/ansible-tmp-1522968201.04-77275577382257/ /home/pi/.ansible/tmp/ansible-tmp-1522968201.04-77275577382257/stat.py && sleep 0'
+<172.31.1.2> EXEC /bin/sh -c '/usr/bin/python /home/pi/.ansible/tmp/ansible-tmp-1522968201.04-77275577382257/stat.py && sleep 0'
+<172.31.1.1> EXEC /bin/sh -c '/usr/bin/python /home/pi/.ansible/tmp/ansible-tmp-1522968201.0-143397374398691/stat.py && sleep 0'
+Using module file /usr/lib/python2.7/dist-packages/ansible/modules/files/file.py
+<172.31.1.2> PUT /tmp/tmpX4aQl3 TO /home/pi/.ansible/tmp/ansible-tmp-1522968201.04-77275577382257/file.py
+<172.31.1.2> EXEC /bin/sh -c 'chmod u+x /home/pi/.ansible/tmp/ansible-tmp-1522968201.04-77275577382257/ /home/pi/.ansible/tmp/ansible-tmp-1522968201.04-77275577382257/file.py && sleep 0'
+Using module file /usr/lib/python2.7/dist-packages/ansible/modules/files/file.py
+<172.31.1.1> PUT /tmp/tmpJVCVE2 TO /home/pi/.ansible/tmp/ansible-tmp-1522968201.0-143397374398691/file.py
+<172.31.1.1> EXEC /bin/sh -c 'chmod u+x /home/pi/.ansible/tmp/ansible-tmp-1522968201.0-143397374398691/ /home/pi/.ansible/tmp/ansible-tmp-1522968201.0-143397374398691/file.py && sleep 0'
+<172.31.1.2> EXEC /bin/sh -c '/usr/bin/python /home/pi/.ansible/tmp/ansible-tmp-1522968201.04-77275577382257/file.py; rm -rf "/home/pi/.ansible/tmp/ansible-tmp-1522968201.04-77275577382257/" > /dev/null 2>&1 && sleep 0'
+<172.31.1.1> EXEC /bin/sh -c '/usr/bin/python /home/pi/.ansible/tmp/ansible-tmp-1522968201.0-143397374398691/file.py; rm -rf "/home/pi/.ansible/tmp/ansible-tmp-1522968201.0-143397374398691/" > /dev/null 2>&1 && sleep 0'
+ok: [172.31.1.2] => {
+    "changed": false, 
+    "checksum": "ad0c81638715d18ce02856d853f1189a5c16bcbf", 
+    "diff": {
+        "after": {
+            "path": "../reports/interface_status_172.31.1.2.html"
+        }, 
+        "before": {
+            "path": "../reports/interface_status_172.31.1.2.html"
+        }
+    }, 
+    "gid": 1000, 
+    "group": "pi", 
+    "invocation": {
+        "module_args": {
+            "attributes": null, 
+            "backup": null, 
+            "content": null, 
+            "delimiter": null, 
+            "dest": "../reports/interface_status_172.31.1.2.html", 
+            "diff_peek": null, 
+            "directory_mode": null, 
+            "follow": false, 
+            "force": false, 
+            "group": null, 
+            "mode": null, 
+            "original_basename": "read_interface.j2", 
+            "owner": null, 
+            "path": "../reports/interface_status_172.31.1.2.html", 
+            "recurse": false, 
+            "regexp": null, 
+            "remote_src": null, 
+            "selevel": null, 
+            "serole": null, 
+            "setype": null, 
+            "seuser": null, 
+            "src": "read_interface.j2", 
+            "state": "file", 
+            "unsafe_writes": null, 
+            "validate": null
+        }
+    }, 
+    "mode": "0644", 
+    "owner": "pi", 
+    "path": "../reports/interface_status_172.31.1.2.html", 
+    "size": 337, 
+    "state": "file", 
+    "uid": 1000
+}
+ok: [172.31.1.1] => {
+    "changed": false, 
+    "checksum": "3a25e4b0b6f915609676a116064f7bcd3292d505", 
+    "diff": {
+        "after": {
+            "path": "../reports/interface_status_172.31.1.1.html"
+        }, 
+        "before": {
+            "path": "../reports/interface_status_172.31.1.1.html"
+        }
+    }, 
+    "gid": 1000, 
+    "group": "pi", 
+    "invocation": {
+        "module_args": {
+            "attributes": null, 
+            "backup": null, 
+            "content": null, 
+            "delimiter": null, 
+            "dest": "../reports/interface_status_172.31.1.1.html", 
+            "diff_peek": null, 
+            "directory_mode": null, 
+            "follow": false, 
+            "force": false, 
+            "group": null, 
+            "mode": null, 
+            "original_basename": "read_interface.j2", 
+            "owner": null, 
+            "path": "../reports/interface_status_172.31.1.1.html", 
+            "recurse": false, 
+            "regexp": null, 
+            "remote_src": null, 
+            "selevel": null, 
+            "serole": null, 
+            "setype": null, 
+            "seuser": null, 
+            "src": "read_interface.j2", 
+            "state": "file", 
+            "unsafe_writes": null, 
+            "validate": null
+        }
+    }, 
+    "mode": "0644", 
+    "owner": "pi", 
+    "path": "../reports/interface_status_172.31.1.1.html", 
+    "size": 481, 
+    "state": "file", 
+    "uid": 1000
+}
+
+TASK [blockinfile] *****************************************************************************************************************************************************************************************************************************
+task path: /home/pi/Automatization/magic/playbooks/read_interface.yaml:15
+File lookup using /home/pi/Automatization/magic/playbooks/../reports/interface_status_172.31.1.1.html as file
+File lookup using /home/pi/Automatization/magic/playbooks/../reports/interface_status_172.31.1.2.html as file
+Using module file /usr/lib/python2.7/dist-packages/ansible/modules/files/blockinfile.py
+Using module file /usr/lib/python2.7/dist-packages/ansible/modules/files/blockinfile.py
+<172.31.1.1> ESTABLISH LOCAL CONNECTION FOR USER: pi
+<172.31.1.1> EXEC /bin/sh -c 'echo ~ && sleep 0'
+<172.31.1.2> ESTABLISH LOCAL CONNECTION FOR USER: pi
+<172.31.1.2> EXEC /bin/sh -c 'echo ~ && sleep 0'
+<172.31.1.2> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/pi/.ansible/tmp/ansible-tmp-1522968204.87-276512704685513 `" && echo ansible-tmp-1522968204.87-276512704685513="` echo /home/pi/.ansible/tmp/ansible-tmp-1522968204.87-276512704685513 `" ) && sleep 0'
+<172.31.1.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/pi/.ansible/tmp/ansible-tmp-1522968204.87-163367076058509 `" && echo ansible-tmp-1522968204.87-163367076058509="` echo /home/pi/.ansible/tmp/ansible-tmp-1522968204.87-163367076058509 `" ) && sleep 0'
+<172.31.1.2> PUT /tmp/tmp5Yc9Ed TO /home/pi/.ansible/tmp/ansible-tmp-1522968204.87-276512704685513/blockinfile.py
+<172.31.1.1> PUT /tmp/tmpI9CP4Y TO /home/pi/.ansible/tmp/ansible-tmp-1522968204.87-163367076058509/blockinfile.py
+<172.31.1.2> EXEC /bin/sh -c 'chmod u+x /home/pi/.ansible/tmp/ansible-tmp-1522968204.87-276512704685513/ /home/pi/.ansible/tmp/ansible-tmp-1522968204.87-276512704685513/blockinfile.py && sleep 0'
+<172.31.1.1> EXEC /bin/sh -c 'chmod u+x /home/pi/.ansible/tmp/ansible-tmp-1522968204.87-163367076058509/ /home/pi/.ansible/tmp/ansible-tmp-1522968204.87-163367076058509/blockinfile.py && sleep 0'
+<172.31.1.1> EXEC /bin/sh -c '/usr/bin/python /home/pi/.ansible/tmp/ansible-tmp-1522968204.87-163367076058509/blockinfile.py; rm -rf "/home/pi/.ansible/tmp/ansible-tmp-1522968204.87-163367076058509/" > /dev/null 2>&1 && sleep 0'
+<172.31.1.2> EXEC /bin/sh -c '/usr/bin/python /home/pi/.ansible/tmp/ansible-tmp-1522968204.87-276512704685513/blockinfile.py; rm -rf "/home/pi/.ansible/tmp/ansible-tmp-1522968204.87-276512704685513/" > /dev/null 2>&1 && sleep 0'
+ok: [172.31.1.2] => {
+    "changed": false, 
+    "diff": [
+        {
+            "after": "", 
+            "after_header": "../reports/interface_status_report.html (content)", 
+            "before": "", 
+            "before_header": "../reports/interface_status_report.html (content)"
+        }, 
+        {
+            "after_header": "../reports/interface_status_report.html (file attributes)", 
+            "before_header": "../reports/interface_status_report.html (file attributes)"
+        }
+    ], 
+    "invocation": {
+        "module_args": {
+            "attributes": null, 
+            "backup": false, 
+            "block": "              <tr>\n                <td>172.31.1.2</td>\n                <td>GigabitEthernet0/13</td>\n                <td></td>\n            </tr>\n                                                <tr>\n                <td>172.31.1.2</td>\n                <td>Loopback0</td>\n                <td></td>\n            </tr>", 
+            "content": null, 
+            "create": false, 
+            "delimiter": null, 
+            "dest": "../reports/interface_status_report.html", 
+            "directory_mode": null, 
+            "follow": false, 
+            "force": null, 
+            "group": null, 
+            "insertafter": null, 
+            "insertbefore": "</table>", 
+            "marker": "# {mark} ANSIBLE MANAGED BLOCK", 
+            "mode": null, 
+            "owner": null, 
+            "path": "../reports/interface_status_report.html", 
+            "regexp": null, 
+            "remote_src": null, 
+            "selevel": null, 
+            "serole": null, 
+            "setype": null, 
+            "seuser": null, 
+            "src": null, 
+            "state": "present", 
+            "unsafe_writes": null, 
+            "validate": null
+        }
+    }, 
+    "msg": ""
+}
+changed: [172.31.1.1] => {
+    "changed": true, 
+    "diff": [
+        {
+            "after": "", 
+            "after_header": "../reports/interface_status_report.html (content)", 
+            "before": "", 
+            "before_header": "../reports/interface_status_report.html (content)"
+        }, 
+        {
+            "after_header": "../reports/interface_status_report.html (file attributes)", 
+            "before_header": "../reports/interface_status_report.html (file attributes)"
+        }
+    ], 
+    "invocation": {
+        "module_args": {
+            "attributes": null, 
+            "backup": false, 
+            "block": "              <tr>\n                <td>172.31.1.1</td>\n                <td>GigabitEthernet0/13</td>\n                <td></td>\n            </tr>\n                                              <tr>\n                <td>172.31.1.1</td>\n                <td>GigabitEthernet0/24</td>\n                <td></td>\n            </tr>\n                <tr>\n                <td>172.31.1.1</td>\n                <td>Loopback0</td>\n                <td></td>\n            </tr>", 
+            "content": null, 
+            "create": false, 
+            "delimiter": null, 
+            "dest": "../reports/interface_status_report.html", 
+            "directory_mode": null, 
+            "follow": false, 
+            "force": null, 
+            "group": null, 
+            "insertafter": null, 
+            "insertbefore": "</table>", 
+            "marker": "# {mark} ANSIBLE MANAGED BLOCK", 
+            "mode": null, 
+            "owner": null, 
+            "path": "../reports/interface_status_report.html", 
+            "regexp": null, 
+            "remote_src": null, 
+            "selevel": null, 
+            "serole": null, 
+            "setype": null, 
+            "seuser": null, 
+            "src": null, 
+            "state": "present", 
+            "unsafe_writes": null, 
+            "validate": null
+        }
+    }, 
+    "msg": "Block inserted"
+}
+META: ran handlers
+META: ran handlers
+
+PLAY RECAP *************************************************************************************************************************************************************************************************************************************
+172.31.1.1                 : ok=3    changed=1    unreachable=0    failed=0   
+172.31.1.2                 : ok=3    changed=0    unreachable=0    failed=0   
+

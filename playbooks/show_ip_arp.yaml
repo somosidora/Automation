@@ -8,4 +8,4 @@
       commands: show ip arp
     register: show
 
-  - debug: var=show.stdout_lines
+  - debug: var=arp
