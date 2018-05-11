@@ -1,0 +1,9 @@
+---
+- hosts: me3800
+  gather_facts: no
+  tasks:
+  - name: show interface status
+    raw: "show interface status"
+    register: show
+
+  - debug: var=show.stdout_lines

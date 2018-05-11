@@ -1,0 +1,3 @@
+{% for host,facts in allhosts.iteritems() %}
+  {% include prefix ~ host ~ format %}
+{% endfor %}

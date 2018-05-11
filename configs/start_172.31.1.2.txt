@@ -1,0 +1,677 @@
+version 15.1
+no service pad
+service timestamps debug datetime msec localtime
+service timestamps log datetime msec localtime
+service password-encryption
+service internal
+!
+hostname ar1-rendezveny
+!
+!
+logging buffered 262144
+no logging console
+enable secret 5 $1$YIZu$Hi.5yji8Ur3crBgqEPdsX.
+!
+aaa new-model
+!
+!
+aaa group server tacacs+ cmdacct
+ server 145.236.227.19
+!
+aaa group server tacacs+ virtacs
+server 31.46.0.225
+server 31.46.0.226
+!
+!
+!
+!
+!
+!
+aaa session-id common
+clock timezone MET 1 0
+clock summer-time MET_DST recurring last Sun Mar 2:00 last Sun Oct 3:00
+no ip source-route
+ip routing
+!
+ip dhcp relay information trust-all
+!
+!
+ip domain name net.telekom.hu
+ip name-server 145.236.227.108
+ip name-server 145.236.88.66
+ip multicast-routing 
+!
+!
+no mpls ip propagate-ttl 
+mpls ldp graceful-restart
+mpls ldp session protection
+mpls ldp igp sync holddown 60000
+mpls ldp label
+ allocate global host-routes
+mpls ldp discovery quick-start
+mpls label protocol ldp
+!
+!
+template LINK-OAM
+ ethernet oam link-monitor symbol-period window 60000
+ ethernet oam link-monitor symbol-period threshold low 10000
+ ethernet oam link-monitor symbol-period threshold high 60000
+ ethernet oam link-monitor frame-period window 60000
+ ethernet oam link-monitor frame-seconds window 9000
+ ethernet oam remote-failure critical-event action error-disable-interface
+!
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+diagnostic bootup level minimal
+!
+username gynagy privilege 15 secret 5 $1$oKMb$fY7wPqzL/IEeEqvWO8p9h1
+username bszabo privilege 15 secret 5 $1$PaHL$QL/bexluVks4PF4T2zOKk.
+username ekarakas privilege 15 secret 5 $1$8PI/$LmGRDbtfjAwcXt30cKzmt1
+username seresd privilege 15 secret 5 $1$NMHH$/qeQd1CDY/W6VqX9UY6EX/
+username rvarga privilege 15 secret 5 $1$VIRi$vTC3kauovDhUIfFZzp5CL1
+username tpkolluti privilege 15 secret 5 $1$j2hp$mvSYIjemIyHFJgDJIwCqJ0
+username kpeter privilege 15 secret 5 $1$Ws7A$TAqxJwXP7csgku0aH76VM/
+username sjanoska privilege 15 secret 5 $1$QSmz$ERxc2cOu2ow3hFpSRlnTH1
+username ipfield privilege 15 secret 5 $1$2I2J$tu3U8SZ9WYgHJB7Qknc7k1
+username tdarvas privilege 15 secret 5 $1$M21o$OijbEqOUia27o8UmJx2BL0
+username dbarany privilege 15 secret 5 $1$IuI5$vCt2wVcbNQnbgnReJ18aN.
+username enemeth privilege 15 secret 5 $1$ikzX$L8UJWz1D5/6dw49ZeblZz/
+username zrancsik privilege 15 secret 5 $1$PMV/$6l1EoiIlIqpT/peyPrI8T/
+username akluka privilege 15 secret 5 $1$2Gru$Z4FFg6QHm.4g/8tUrSi941
+username lheszberge privilege 15 secret 5 $1$4BMP$md8deCGVGnaQX34tcfVjh.
+username cslenekes privilege 15 secret 5 $1$Tuli$KIYvplGslN6vnefhvP5Pa1
+username pkokany privilege 15 secret 5 $1$P3cM$b82vfQsFWrJMjppdKQTY9/
+username rbojti privilege 15 secret 5 $1$YBEH$DU1Xfw6AwxxkGIzIbk6x4.
+username glengyel privilege 15 secret 5 $1$OAtN$Tw0K8G98uXCdQ4FEf/Qau1
+!
+vlan internal allocation policy ascending
+!
+ip ftp source-interface Loopback0
+ip tcp path-mtu-discovery age-timer 10
+ip telnet tos E0
+ip tftp source-interface Loopback0
+ip ssh time-out 60
+ip ssh source-interface Loopback0
+ip ssh version 2
+ip ssh dscp 48
+class-map type multicast-flows IPTV-STATIC-GROUPS
+ group 239.1.1.1 to 239.1.1.255
+ group 239.1.2.10 to 239.1.2.253
+ group 239.1.4.1 to 239.1.4.30
+ group 239.1.5.1 to 239.1.5.30
+ group 239.1.6.1 to 239.1.6.50
+!
+!
+!
+interface Null0
+ no ip unreachables
+!
+interface Loopback0
+ ip address 172.31.1.2 255.255.255.255
+ ip pim sparse-mode
+ ip igmp static-group class-map IPTV-STATIC-GROUPS
+!
+interface GigabitEthernet0
+ no ip address
+ shutdown
+ speed auto
+ duplex auto
+ negotiation auto
+!
+interface GigabitEthernet0/1
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/2
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/3
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/4
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/5
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/6
+ no switchport
+ shutdown
+!         
+interface GigabitEthernet0/7
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/8
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/9
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/10
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/11
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/12
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/13
+ no switchport
+!
+interface GigabitEthernet0/14
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/15
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/16
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/17
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/18
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/19
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/20
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/21
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/22
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/23
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/24
+ no switchport
+ shutdown
+!
+interface GigabitEthernet0/13
+ description ar0-rendezveny GigabitEthernet0/13 / / / BB /
+ no switchport
+ dampening
+ mtu 9100
+ ip address 10.0.1.2 255.255.255.0
+ no ip redirects
+ no ip proxy-arp
+ ip pim query-interval 1 
+ ip pim sparse-mode
+ ip ospf message-digest-key 1 md5 7 111D2C01181F221F01247B73
+ ip ospf network point-to-point
+ logging event link-status
+ load-interval 30
+ carrier-delay msec 0
+ mpls ip
+ mpls label protocol ldp
+ mpls ldp igp sync delay 10
+ no shut
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface GMPLS0
+ no ip address
+ no keepalive
+!
+router ospf 5483
+ router-id 172.31.1.2
+ log-adjacency-changes
+ max-metric router-lsa on-startup 300
+ auto-cost reference-bandwidth 100000
+ area 0 authentication message-digest
+ timers throttle spf 100 100 5000
+ timers throttle lsa 0 100 5000
+ timers lsa arrival 100
+ passive-interface default
+ no passive-interface GigabitEthernet0/13
+ network 10.0.1.0 0.0.0.255 area 0
+ network 172.31.1.2 0.0.0.0 area 0
+ mpls ldp sync
+!
+router bgp 5483
+ bgp router-id 172.31.1.2
+ bgp log-neighbor-changes
+ bgp graceful-restart restart-time 120
+ bgp graceful-restart stalepath-time 360
+ bgp graceful-restart
+ no bgp default ipv4-unicast
+ no bgp deterministic-med
+ neighbor rrvpnv4 peer-group
+ neighbor rrvpnv4 remote-as 5483
+ neighbor rrvpnv4 password 7 111D2C01181F221F01247B70
+ neighbor rrvpnv4 update-source Loopback0
+ neighbor rripv4 peer-group
+ neighbor rripv4 remote-as 5483
+ neighbor rripv4 password 7 120D30131D0625172F25747C
+ neighbor rripv4 update-source Loopback0
+ neighbor 145.236.225.12 peer-group rripv4
+ neighbor 145.236.225.13 peer-group rripv4
+ neighbor 145.236.226.212 peer-group rrvpnv4
+ neighbor 145.236.226.213 peer-group rrvpnv4
+ !
+ address-family ipv4
+  bgp dampening
+  bgp nexthop route-map NHT
+  redistribute connected route-map bgp-redist-conn
+  redistribute static route-map bgp-redist-static
+  neighbor rripv4 send-community both
+  neighbor rripv4 next-hop-self
+  neighbor rripv4 route-map from-rr in
+  neighbor rripv4 route-map to-RR out
+  neighbor 145.236.225.12 activate
+  neighbor 145.236.225.13 activate
+ ! no neighbor 145.236.226.212 activate
+ ! no neighbor 145.236.226.213 activate
+  maximum-paths 2
+  maximum-paths ibgp 2
+ exit-address-family
+ !
+ address-family vpnv4
+  bgp dampening
+  bgp nexthop route-map NHT
+  neighbor rrvpnv4 send-community extended
+  neighbor rrvpnv4 next-hop-self
+  neighbor 145.236.226.212 activate
+  neighbor 145.236.226.213 activate
+ exit-address-family
+!
+ip forward-protocol nd
+!
+ip bgp-community new-format
+ip community-list standard blackhole permit 5483:10000
+!
+no ip http server
+no ip http secure-server
+ip pim rp-address 145.236.224.206 tripleplaymc override
+ip pim rp-address 84.1.100.201 tkabelmc override
+ip tacacs source-interface Loopback0
+ip route 172.16.1.1 255.255.255.255 Null0
+!
+ip access-list standard ACL-SNMP-RO
+ remark ro-snmp
+ permit 145.236.230.152
+ permit 145.236.230.151
+ permit 145.236.230.150
+ permit 145.236.230.171
+ permit 145.236.230.170
+ permit 145.236.230.168
+ permit 145.236.230.166
+ permit 172.28.1.136
+ permit 145.236.230.161
+ permit 145.236.88.71
+ permit 145.236.88.77
+ permit 84.2.38.249
+ permit 145.236.227.2
+ permit 145.236.95.244
+ permit 145.236.230.120
+ permit 145.236.227.111
+ip access-list standard ACL-SNMP-RO-KFKI-LNX
+ remark kfki-lnx
+ permit 145.236.230.226
+ip access-list standard ACL-SNMP-RO-NETMAP
+ permit 145.236.230.97
+ip access-list standard ACL-SNMP-RO-Performance
+ permit 10.3.77.93
+ permit 172.28.1.136
+ permit 172.28.1.139
+ permit 10.3.73.52
+ permit 10.119.240.106
+ permit 145.236.237.128 0.0.0.15
+ permit 145.236.95.240 0.0.0.15
+ permit 31.46.0.48 0.0.0.15
+ permit 10.20.46.176 0.0.0.15
+ permit 172.28.3.0 0.0.0.15
+ permit 145.236.88.64 0.0.0.31
+ip access-list standard ACL-SNMP-RO-PrecisionTeszthez
+ remark Precision teszthez
+ permit 145.236.230.194
+ permit 145.236.231.2
+ permit 145.236.231.3
+ permit 145.236.231.1
+ permit 145.236.231.4
+ permit 10.119.240.53
+ permit 10.119.240.93
+ permit 10.119.240.92
+ permit 10.119.240.94
+ip access-list standard ACL-SNMP-RO-VOYENCE
+ remark Voyence
+ permit 10.230.191.7
+ permit 10.230.191.6
+ permit 10.230.191.5
+ permit 145.236.230.196
+ip access-list standard ACL-SNMP-RW
+ remark rw-snmp
+ permit 145.236.230.154
+ permit 145.236.230.145
+ permit 145.236.237.135
+ permit 145.236.230.169
+ permit 145.236.230.162
+ permit 145.236.230.161
+ permit 145.236.230.196
+ permit 145.236.88.71
+ permit 145.236.230.43
+ permit 145.236.230.41
+ permit 145.236.230.45
+ permit 145.236.230.70
+ permit 145.236.230.120
+ permit 145.236.230.97
+ permit 145.236.90.0 0.0.0.15
+ip access-list standard ACL-SNMP-RW-60
+ permit 145.236.230.152
+ permit 145.236.230.151
+ permit 145.236.230.150
+ permit 145.236.230.171
+ permit 145.236.230.170
+ip access-list standard ACL-SNMP-TFTP-SRVRS
+ permit 145.236.230.145
+ permit 145.236.227.111
+ip access-list standard VTY-ACL
+ permit 145.236.230.154
+ permit 145.236.230.146
+ permit 145.236.230.145
+ permit 145.236.230.151
+ permit 145.236.230.150
+ permit 145.236.230.171
+ permit 145.236.230.170
+ permit 145.236.230.168
+ permit 145.236.230.166
+ permit 172.28.1.136
+ permit 10.230.191.7
+ permit 10.230.191.6
+ permit 10.230.191.5
+ permit 145.236.230.196
+ permit 145.236.230.226
+ permit 84.2.38.249
+ permit 145.236.231.8
+ permit 145.236.231.3
+ permit 145.236.227.2
+ permit 145.236.231.6
+ permit 145.236.226.1
+ permit 145.236.227.1
+ permit 145.236.230.120
+ permit 145.236.227.111
+ permit 145.236.230.110
+ permit 145.236.224.0 0.0.1.255
+ permit 145.236.226.0 0.0.0.255
+ permit 145.236.229.0 0.0.0.127
+ permit 145.236.237.0 0.0.0.127
+ permit 145.236.90.0 0.0.0.31
+ permit 145.236.230.0 0.0.0.255
+ip access-list standard noPIMnei
+ deny   any
+ip access-list standard tkabelmc
+ permit 239.3.0.0 0.0.0.127
+ permit 239.3.1.0 0.0.0.255
+ permit 239.3.2.0 0.0.0.255
+ permit 239.3.4.0 0.0.1.255
+ permit 239.3.6.0 0.0.0.255
+ip access-list standard tripleplaymc
+ permit 239.1.1.0 0.0.0.255
+ permit 239.1.2.0 0.0.0.255
+ permit 239.1.4.0 0.0.0.255
+ permit 239.1.5.0 0.0.0.255
+ permit 239.1.6.0 0.0.0.255
+!
+ip access-list extended iacl
+ permit udp 10.3.0.0 0.0.3.255 145.236.238.0 0.0.0.255 eq 1701
+ permit udp any host 145.236.225.6 eq 1701
+ permit udp any host 145.236.226.222 eq 1701
+ permit icmp 10.3.0.0 0.0.3.255 145.236.238.0 0.0.0.255
+ permit icmp 10.3.0.0 0.0.3.255 10.3.0.0 0.0.3.255
+ permit udp any 145.236.225.0 0.0.0.255 eq 1701
+ deny   ip 0.0.0.0 0.255.255.255 any
+ deny   ip 127.0.0.0 0.255.255.255 any
+ deny   ip 192.0.2.0 0.0.0.255 any
+ deny   ip 224.0.0.0 31.255.255.255 any
+ deny   ip 169.254.0.0 0.0.255.255 any
+ deny   ip 10.0.0.0 0.255.255.255 any
+ deny   ip 172.16.0.0 0.15.255.255 any
+ deny   ip 192.168.0.0 0.0.255.255 any
+ deny   ip any 0.0.0.0 0.255.255.255
+ deny   ip any 127.0.0.0 0.255.255.255
+ deny   ip any 192.0.2.0 0.0.0.255
+ deny   ip any 224.0.0.0 31.255.255.255
+ deny   ip any 169.254.0.0 0.0.255.255
+ deny   ip any 10.0.0.0 0.255.255.255
+ deny   ip any 172.16.0.0 0.15.255.255
+ deny   ip any 192.168.0.0 0.0.255.255
+ deny   ip 145.236.220.0 0.0.3.255 any
+ deny   ip 145.236.224.0 0.0.1.255 any
+ deny   ip 145.236.226.0 0.0.0.255 any
+ deny   ip 84.1.68.0 0.0.3.255 any
+ deny   ip 84.1.72.0 0.0.7.255 any
+ deny   ip 84.1.80.0 0.0.7.255 any
+ deny   ip 84.1.88.0 0.0.3.255 any
+ deny   ip 84.1.92.0 0.0.1.255 any
+ deny   ip 84.1.94.0 0.0.0.255 any
+ deny   ip 84.1.0.0 0.0.7.255 any
+ deny   ip 84.1.8.0 0.0.1.255 any
+ deny   ip 84.1.10.0 0.0.0.255 any
+ deny   ip 84.1.36.0 0.0.3.255 any
+ deny   ip 84.1.40.0 0.0.1.255 any
+ deny   ip 84.1.128.0 0.0.7.255 any
+ deny   ip 84.1.136.0 0.0.3.255 any
+ deny   ip 84.1.140.0 0.0.1.255 any
+ deny   ip 81.183.0.0 0.0.0.15 any
+ deny   ip 81.183.2.0 0.0.0.255 any
+ permit ip any host 145.236.226.1
+ permit gre any any
+ permit ipinip any any
+ permit udp any any range 33434 34202
+ permit tcp any any eq bgp
+ permit tcp any eq bgp any
+ permit icmp any any
+ deny   ip any 145.236.220.0 0.0.3.255
+ deny   ip any 145.236.224.0 0.0.1.255
+ deny   ip any 145.236.226.0 0.0.0.255
+ deny   ip any 84.1.68.0 0.0.3.255
+ deny   ip any 84.1.72.0 0.0.7.255
+ deny   ip any 84.1.80.0 0.0.7.255
+ deny   ip any 84.1.88.0 0.0.3.255
+ deny   ip any 84.1.92.0 0.0.1.255
+ deny   ip any 84.1.94.0 0.0.0.255
+ deny   ip any 84.1.0.0 0.0.7.255
+ deny   ip any 84.1.8.0 0.0.1.255
+ deny   ip any 84.1.10.0 0.0.0.255
+ deny   ip any 84.1.36.0 0.0.3.255
+ deny   ip any 84.1.40.0 0.0.1.255
+ deny   ip any 84.1.128.0 0.0.7.255
+ deny   ip any 84.1.136.0 0.0.3.255
+ deny   ip any 84.1.140.0 0.0.1.255
+ deny   ip any 81.183.0.0 0.0.0.15
+ deny   ip any 81.183.2.0 0.0.0.255
+ deny   tcp any any eq 646
+ deny   tcp any eq 646 any
+ deny   udp any any eq 646
+ deny   udp any eq 646 any
+ deny   tcp any any eq 711
+ deny   tcp any eq 711 any
+ deny   udp any any eq 711
+ deny   udp any eq 711 any
+ deny   udp any any eq rip
+ deny   ospf any any
+ deny   eigrp any any
+ deny   pim any any
+ deny   udp any any eq 1985
+ deny   112 any any
+ deny   udp any any eq 3222
+ permit ip any any
+!
+ip access-list extended mc-source-filter-new
+ deny   igmp any any 1
+ permit igmp any 224.0.0.0 15.255.255.255
+ deny   ip any 224.0.0.0 15.255.255.255
+ permit ip any any
+!
+!
+ip prefix-list 3play seq 5 deny 0.0.0.0/0
+!
+ip prefix-list anyprefix seq 10 permit 0.0.0.0/0 le 32
+!
+ip prefix-list only_32 seq 5 permit 0.0.0.0/0 ge 32
+!
+ip prefix-list redist-conn seq 5 deny 0.0.0.0/0
+!
+ip prefix-list redist-export seq 5 deny 0.0.0.0/0
+!
+ip prefix-list redist-static-deny seq 3 permit 172.16.1.1/32
+ip sla enable reaction-alerts
+!
+logging trap notifications
+logging facility local1
+logging source-interface Loopback0
+logging 145.236.227.111
+!logging 145.236.230.148
+logging on
+!
+route-map to-RR permit 5
+ description GGC community mapping
+ match ip address prefix-list anyprefix
+ set community 5483:10000 additive
+!
+route-map to-RR deny 20
+!
+route-map from-rr permit 5
+ match ip address prefix-list only_32
+ match community blackhole
+ set weight 500
+ set community no-advertise additive
+ set ip next-hop 172.16.1.1
+!
+route-map from-rr permit 30
+!
+route-map NHT permit 20
+ match source-protocol ospf 5483 connected static
+!
+!
+route-map bgp-redist-conn permit 10
+ match ip address prefix-list redist-export
+!
+route-map bgp-redist-conn permit 20
+ match ip address prefix-list redist-conn
+ set community no-export additive
+!
+route-map bgp-redist-conn permit 30
+ match ip address prefix-list 3play
+ set community 5483:4050 no-export additive
+!
+!
+route-map bgp-redist-static deny 3
+ match ip address prefix-list redist-static-deny
+!
+route-map bgp-redist-static permit 5
+ match ip address prefix-list redist-export
+ set local-preference 300
+!
+route-map bgp-redist-static permit 10
+ set community no-export additive
+!
+!
+mpls ldp router-id Loopback0 force
+!
+snmp-server engineID local 145236222002
+snmp-server group cfgman v3 auth read cfgman write cfgman notify cfgman 
+snmp-server view cfgman system included
+snmp-server view cfgman interfaces included
+snmp-server view cfgman ifMIB included
+snmp-server view cfgman lsystem included
+snmp-server view cfgman ciscoConfigCopyMIB included
+snmp-server view VOYENCE internet included
+snmp-server view VOYENCE dot1dTpFdbEntry excluded
+snmp-server community titok RW ACL-SNMP-RW
+snmp-server community mrkprovrw RW ACL-SNMP-RW-60
+snmp-server community netmap RO ACL-SNMP-RO-NETMAP
+snmp-server community prec1si0n RO ACL-SNMP-RO-PrecisionTeszthez
+snmp-server community ipcentrum RO ACL-SNMP-RO
+snmp-server community v0y3nc3 view VOYENCE RO ACL-SNMP-RO-VOYENCE
+snmp-server community kfk1-1nx RO ACL-SNMP-RO-KFKI-LNX
+snmp-server community rtkvoyen view VOYENCE RO ACL-SNMP-RO-VOYENCE
+snmp-server community PeR3mecA3 RO ACL-SNMP-RO-Performance
+snmp-server trap-source Loopback0
+snmp-server packetsize 1472
+snmp-server tftp-server-list ACL-SNMP-TFTP-SRVRS
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps bgp
+snmp-server enable traps config
+snmp-server enable traps pim neighbor-change invalid-pim-message
+snmp-server enable traps mpls ldp session-up session-down
+snmp-server host 10.230.191.5 rtkvoyen 
+snmp-server host 145.236.230.196 v0y3nc3 
+snmp-server host 145.236.230.150 xpercom udp-port 9101 
+snmp-server host 145.236.230.151 xpercom udp-port 9101 
+snmp-server file-transfer access-group ACL-SNMP-TFTP-SRVRS protocol tftp
+snmp ifmib ifindex persist
+tacacs-server host 31.46.0.225 key 7 01405437535B3108346219
+tacacs-server host 31.46.0.226 key 7 1541593F0C7A1C233D1D62
+tacacs-server host 145.236.227.19 key 7 0825455D0A1645351309091E6A2D36273E752D06131311414549595051
+tacacs-server timeout 3
+tacacs-server directed-request
+!
+lldp run
+!
+privilege exec level 1 show startup-config
+privilege exec level 1 show running-config
+privilege exec level 1 show
+banner login ^C
+You have logged on to a Magyar Telekom proprietary device.
+This device may be used only for the authorized business purposes of Magyar Telekom.
+If you are not an authorized user, disconnect now.
+Any use of the system can be logged and logs can be used as evidence in court.
+Anyone found using this device or its information for any unauthorized purpose 
+may be subject to disciplinary action and/or prosecution.
+^C
+alias exec ps show processes cpu | exclude 0\.00\%  0\.00\%  0\.00\%
+!
+line con 0
+ exec-timeout 0 0
+ transport preferred none
+line vty 0 4
+ exec-timeout 0 0
+ !access-class VTY-ACL in
+ !exec-timeout 15 0
+ transport preferred none
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 0 0
+ !access-class VTY-ACL in
+ !exec-timeout 15 0
+ transport preferred none
+ transport input telnet ssh
+!
+controller BITS input applique E1 framing fas_nocrc linecode ami
+ntp source Loopback0
+ntp update-calendar
+ntp server 145.236.88.67
+ntp server 145.236.227.109
+end
