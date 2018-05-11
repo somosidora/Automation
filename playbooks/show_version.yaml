@@ -1,0 +1,11 @@
+---
+- hosts: me3800
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: check version
+    ios_command:
+      commands: show version
+    register: result
+
+  - debug: var=result.stdout_lines[0]

@@ -1,0 +1,20 @@
+---
+- name: Collect interface statuses
+  hosts: me3800
+  connection: local
+  gather_facts: no
+  vars:
+    tmpfile: "../reports/interface_status_{{inventory_hostname}}.html"
+    destfile: "../reports/interface_status_report.html"
+  tasks:
+  - ios_facts:
+    register: results
+  - template: src="../templates/read_interface.j2" dest="{{tmpfile}}"
+    vars:
+      ansible_facts: "{{ results.ansible_facts }}"
+  - blockinfile:
+      block: "{{ lookup('file', tmpfile) }}"
+      dest: "{{ destfile }}"
+      insertbefore: "</table>"
+      marker_begin: "<!-- {{ inventory_hostname }} BEGIN -->"
+      marker_end: "<!-- {{ inventory_hostname }} END -->"

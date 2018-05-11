@@ -1,0 +1,13 @@
+---
+- name: Start ME3800
+  hosts: me3800
+  connection: local
+  gather_facts: no
+  tasks:
+  - include_vars:
+      file: "../jobs/start_172.31.1.2.yaml"
+  - template: src="../templates/me3800_alapcfg.j2" dest="../configs/start_{{inventory_hostname}}.txt"
+  - ios_config:
+      authorize: yes
+      auth_pass: "{{ansible_ssh_pass}}"
+      src: "../configs/start_{{inventory_hostname}}.txt"

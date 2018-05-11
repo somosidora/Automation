@@ -1,0 +1,9 @@
+{% for interface,data in ansible_facts.ansible_net_interfaces.iteritems() %}
+  {% if data.operstatus.find('up') != -1 %}
+            <tr>
+                <td>{{inventory_hostname}}</td>
+                <td>{{interface}}</td>
+                <td>{{data.description}}</td>
+            </tr>
+  {% endif %}
+{% endfor %}

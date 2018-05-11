@@ -1,0 +1,9 @@
+---
+loopback_address: 172.31.1.2
+hostname: ar1-rendezveny
+uplink1_interface: GigabitEthernet0/13
+uplink1_conn_device: ar0-rendezveny
+uplink1_conn_interface: GigabitEthernet0/13
+uplink1_address: 10.0.1.2/24
+ggc_community: 10000
+
