@@ -1,0 +1,6 @@
+---
+- hosts: me3800
+  connection: local
+  gather_facts: no
+  tasks:
+  - ios_facts:

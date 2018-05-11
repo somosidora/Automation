@@ -1,2 +1,6 @@
 ---
 ios_version: me380x-universalk9-mz.153-3.S4.bin
+<<<<<<< HEAD
+=======
+interface: GigabitEthernet0/24
+>>>>>>> b59dd14496496121cbba8ca69ba4a653e3089cb7
